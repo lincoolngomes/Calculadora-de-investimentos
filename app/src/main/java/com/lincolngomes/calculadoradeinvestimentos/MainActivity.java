@@ -3,9 +3,9 @@ package com.lincolngomes.calculadoradeinvestimentos;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -23,67 +23,131 @@ public class MainActivity extends AppCompatActivity {
     //FORMATAÇÃO DECIMAL
     DecimalFormat df = new DecimalFormat("0.00");
 
-    TextInputEditText editarCapital;
-    TextInputEditText editarJuros;
-    TextInputEditText editarPeriodo;
-    TextInputEditText editarPMT;
-    TextInputEditText editarJurosCompostos;
-    TextView resultadoVF;
+    public TextInputEditText editarCapital;
+    public TextInputEditText editarJuros;
+    public TextInputEditText editarPeriodo;
+    public TextInputEditText editarPMT;
+    public TextInputEditText editarJurosCompostos;
+    public TextView resultadoVF;
+    public Boolean validarCampos;
 
-
-
-    DadosInvestimentos dados = new DadosInvestimentos();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.calcular_vf);
+        setContentView(R.layout.activity_main);
 
         editarCapital = findViewById(R.id.editarCapital);
         editarJuros = findViewById(R.id.editarJuros);
         editarPeriodo = findViewById(R.id.editarPeriodo);
         editarPMT = findViewById(R.id.editarPMT);
-        editarJurosCompostos = findViewById(R.id.editarJurosCompostos);
         resultadoVF = findViewById(R.id.resultadoVF);
 
 
 
-//        editarDolar = findViewById(R.id.editarJuros);
-//        editarReais = findViewById(R.id.editarCapital);
-//        textoResultado = findViewById(R.id.resultadoVF);
-//        nome = findViewById(R.id.editarPeriodo);
-//        email = findViewById(R.id.email);
+    }
 
+    public void calcularVF(View view) {
+
+
+        validarCampos();
+//        if (validarCampos()) {
+//            resultadoVF.setText("CERTO");
+//        }
+//
+//        double capital = Double.parseDouble(editarCapital.getText().toString());
+//        double txJuros = Double.parseDouble(editarJuros.getText().toString());
+//        double periodo = Double.parseDouble(editarPeriodo.getText().toString());
+//        double pmt = Double.parseDouble(editarPMT.getText().toString());
+//        double juros = txJuros / 100;
+//
+//        if (editarPeriodo.getText() == null) {
+//            Toast.makeText(this, "Perido vazio", Toast.LENGTH_LONG);
+//        }
+
+
+//Calculos
+//        double jurosSimples = capital + (capital * juros * periodo);
+//        double jurosCompostosPV = capital * Math.pow(1 + juros, periodo);
+//        double jurosCompostosPMT = pmt * (Math.pow(1 + juros, periodo) - 1) / juros;
+//        double jurosCompostoResultado1 = jurosCompostosPV + jurosCompostosPMT;
 
     }
 
-    public void calcularVF( View view) {
+
+
+
+
+
+    public void validarCampos() {
+
         double capital = Double.parseDouble(editarCapital.getText().toString());
-        double txJuros = Double.parseDouble(editarJuros.getText().toString());
-        double periodo = Double.parseDouble(editarPeriodo.getText().toString());
+//        double txJuros = Double.parseDouble(editarJuros.getText().toString());
+//        double periodo = Double.parseDouble(editarPeriodo.getText().toString());
+//        double pmt = Double.parseDouble(editarPMT.getText().toString());
+//        double juros = txJuros / 100;
 
 
-
-        double juros = txJuros/100;
-
-        double jurosSimples = capital + (capital * juros * periodo);
-        double jurosCompostos = capital * Math.pow(1 + juros, periodo)
-                ;
-
-        resultadoVF.setText("O resultado do valor futuro \n em juros compostos é \n de R$ " + df.format(jurosCompostos) + ".");
 
 
     }
-//Calculadora de cotação Dolar
 
-//    public void calcularDolar (View v) {
-//
-//        double valorDolar = Double.parseDouble(editarDolar.getText().toString());
-//        double valorReais = Double.parseDouble(editarReais.getText().toString());
-//        double valorResultado = valorDolar * valorReais;
-//
-//
-//        textoResultado.setText(" O resultado é de R$ " + df.format(valorResultado) + "\n" + " Estamos a disposição " + nome.getText() + " - " + email.getText() );
-//
-//    }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        if (editarCapital == null) {
+//            resultadoVF.setText("SEM CAPITAL ");}
+//        if (editarPMT == null) {
+//            resultadoVF.setText("SEM PMT ");
+//        }
+
+
+
+
+
+  //FIM
+
+
+
+
+
+
+//IDEIA
+

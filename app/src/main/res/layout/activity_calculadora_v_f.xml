@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fundo_VF"
-    tools:context=".MainActivity">
+    tools:context=".CalculadoraVFActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -13,7 +12,7 @@
         android:layout_height="200dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:adjustViewBounds="false"
@@ -30,8 +29,9 @@
         android:layout_marginLeft="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#4B3F51B5"
-            android:hint="Digite seu capital"
+            android:hint="Digite seu capital inicial"
             android:inputType="numberDecimal"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
@@ -103,7 +103,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:onClick="calcularVF"
+        android:onClick="validarDados"
         android:text="Calcular"
         app:backgroundTint="#1978C3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -129,5 +129,6 @@
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
