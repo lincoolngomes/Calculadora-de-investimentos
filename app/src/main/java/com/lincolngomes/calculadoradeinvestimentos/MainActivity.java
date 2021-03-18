@@ -2,152 +2,97 @@ package com.lincolngomes.calculadoradeinvestimentos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.heinrichreimersoftware.materialintro.app.IntroActivity;
+import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
 
 import java.text.DecimalFormat;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends IntroActivity {
+    private FirebaseAuth autenticacao;
+    //
 
-//    private TextInputEditText editarDolar;
-//    private TextInputEditText editarReais;
-//    private TextView textoResultado;
-//    private TextInputEditText nome;
-//    private TextInputEditText email;
-
-
-    //FORMATAÇÃO DECIMAL
-    DecimalFormat df = new DecimalFormat("0.00");
-
-    public TextInputEditText editarCapital;
-    public TextInputEditText editarJuros;
-    public TextInputEditText editarPeriodo;
-    public TextInputEditText editarPMT;
-    public TextInputEditText editarJurosCompostos;
-    public TextView resultadoVF;
-    public Boolean validarCampos;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        editarCapital = findViewById(R.id.editarCapital);
-        editarJuros = findViewById(R.id.editarJuros);
-        editarPeriodo = findViewById(R.id.editarPeriodo);
-        editarPMT = findViewById(R.id.editarPMT);
-        resultadoVF = findViewById(R.id.resultadoVF);
+        // setContentView(R.layout.activity_main);
 
 
+        setButtonBackVisible(false);
+        setButtonNextVisible(false);
+
+        addSlide( new FragmentSlide.Builder()
+                .background(android.R.color.holo_blue_light)
+                .fragment(R.layout.intro_1)
+                .build());
+
+        addSlide( new FragmentSlide.Builder()
+                .background(android.R.color.holo_blue_light)
+                .fragment(R.layout.intro_2)
+                .build());
+
+        addSlide( new FragmentSlide.Builder()
+                .background(android.R.color.holo_blue_light)
+                .fragment(R.layout.intro_3)
+                .build());
+
+        addSlide( new FragmentSlide.Builder()
+                .background(android.R.color.holo_blue_light)
+                .fragment(R.layout.intro_4)
+                .build());
+
+        addSlide( new FragmentSlide.Builder()
+                .background(android.R.color.background_light)
+                .fragment(R.layout.intro_cadastro)
+                .canGoForward(false)
+                .build());
 
     }
 
-    public void calcularVF(View view) {
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        //Verificar se o usuario está logado, logo ao abrir o app
+       // verificarUsuarioLogado();
+    }
+
+    public  void btEntrar(View view){
+        startActivity(new Intent(this, LoginActivity.class));
+
+    }
+
+    public  void btCadastrar(View view){
+        startActivity(new Intent(this, CadastroActivity.class));
+
+    }
 
 
-        validarCampos();
-//        if (validarCampos()) {
-//            resultadoVF.setText("CERTO");
+    //Metodo para veirificar se o usuario esta logado
+//    public void verificarUsuarioLogado(){
+//        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+//
+//        //deslogar usuario
+//        // autenticacao.signOut();
+//
+//        if ( autenticacao.getCurrentUser() != null ){
+//            abrirTelaPrincipal();
 //        }
 //
-//        double capital = Double.parseDouble(editarCapital.getText().toString());
-//        double txJuros = Double.parseDouble(editarJuros.getText().toString());
-//        double periodo = Double.parseDouble(editarPeriodo.getText().toString());
-//        double pmt = Double.parseDouble(editarPMT.getText().toString());
-//        double juros = txJuros / 100;
-//
-//        if (editarPeriodo.getText() == null) {
-//            Toast.makeText(this, "Perido vazio", Toast.LENGTH_LONG);
-//        }
+//    }
 
-
-//Calculos
-//        double jurosSimples = capital + (capital * juros * periodo);
-//        double jurosCompostosPV = capital * Math.pow(1 + juros, periodo);
-//        double jurosCompostosPMT = pmt * (Math.pow(1 + juros, periodo) - 1) / juros;
-//        double jurosCompostoResultado1 = jurosCompostosPV + jurosCompostosPMT;
-
+    public void abrirTelaPrincipal(){
+        startActivity(new Intent(this, PrincipalActivity.class));
     }
 
-
-
-
-
-
-    public void validarCampos() {
-
-        double capital = Double.parseDouble(editarCapital.getText().toString());
-//        double txJuros = Double.parseDouble(editarJuros.getText().toString());
-//        double periodo = Double.parseDouble(editarPeriodo.getText().toString());
-//        double pmt = Double.parseDouble(editarPMT.getText().toString());
-//        double juros = txJuros / 100;
-
-
-
-
-    }
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        if (editarCapital == null) {
-//            resultadoVF.setText("SEM CAPITAL ");}
-//        if (editarPMT == null) {
-//            resultadoVF.setText("SEM PMT ");
-//        }
-
-
-
-
-
-  //FIM
-
-
-
-
-
-
-//IDEIA
-
+}

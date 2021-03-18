@@ -7,5 +7,25 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="fundo_VF">#2196F3</color>
+    <color name="colorPrimary">#01C7D2</color>
+    <color name="colorPrimaryDark">#00B2BC</color>
+    <color name="colorAccent">#FF706A</color>
+    <color name="colorAccent2">#DC5C56</color>
+    <color name="texto_cinza">#4A4242</color>
+
+
+    <!--Cores depesas!-->
+    <color name="colorPrimaryDespesas">#FF706A</color>
+    <color name="colorPrimaryDarkDespesas">#E66560</color>
+    <color name="colorAccentDespesas">#FF706A</color>
+
+    <!--Cores receitas!-->
+    <color name="colorPrimaryReceitas">#00D39E</color>
+    <color name="colorPrimaryDarkReceitas">#02AE7F</color>
+    <color name="colorAccentReceitas">#00D39E</color>
+
+    <!--Cores investimentos!-->
+    <color name="colorPrimaryInvestimentos">#0175D1</color>
+    <color name="colorPrimaryDarkInvestimentos">#0062AF</color>
+    <color name="colorAccentInvestimentos">#029FE6</color>
 </resources>
